@@ -21,32 +21,6 @@ export default  {
       },
 
 
-    //   {
-    //     name: 'color1',
-    //     type: 'color',
-    //     title: 'From color'
-    //   },
-    //   {
-    //     name: 'color2',
-    //     type: 'color',
-    //     title: 'To color'
-    //   },
-
-    //   {
-    //     name: 'desc',
-    //     type: 'string',
-    //     title: 'Description'
-    //   },
-    //   {
-    //     name: 'image',
-    //     type: 'image',
-    //     title: 'Image'
-    //   },
-    //   {
-    //     name: 'imageBgColor',
-    //     type: 'color',
-    //     title: 'Background image color'
-    //   },
 
    
     ]
