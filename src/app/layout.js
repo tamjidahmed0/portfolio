@@ -19,9 +19,9 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function generateMetadata() {
   const result = await getMeta()
-  console.log(result[0].title) 
+  console.log(result[0].description) 
   return {
-    title: result[0].title,
+    title: result[0].title, 
     description: result[0].description,
     // icons:{
     //   icon: '../../public/tamu.png'
