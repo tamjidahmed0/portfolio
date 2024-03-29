@@ -74,7 +74,7 @@ data()
       
       <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
         {aboutData.map((value, i)=>(
-          <Image src={urlFor(value.image.asset._ref).url()} width={500} height={500} key={i} />
+          <Image alt="" src={urlFor(value.image.asset._ref).url()} width={500} height={500} key={i} />
         ))}
         
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
