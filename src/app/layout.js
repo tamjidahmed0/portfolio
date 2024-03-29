@@ -1,7 +1,7 @@
 
 import './globals.css'
 import { Inter } from 'next/font/google'
-import icon from '../../public/tamu.png'
+// import icon from '../../public/tamu.png'
 import getMeta from '../../lib/getMetaData'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -23,9 +23,9 @@ export async function generateMetadata() {
   return {
     title: result[0].title,
     description: result[0].description,
-    icons:{
-      icon: '../../public/tamu.png'
-    }
+    // icons:{
+    //   icon: '../../public/tamu.png'
+    // }
   }
 }
 
