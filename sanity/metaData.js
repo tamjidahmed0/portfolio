@@ -15,7 +15,11 @@ export default  {
         title: 'Description'
       },
 
-      { name: 'image',
+      { name: 'meta_image',
+        type: 'image',
+        title: 'Meta Image'
+      },
+      { name: 'icon',
         type: 'image',
         title: 'Icon'
       },
