@@ -22,6 +22,10 @@ export async function generateMetadata() {
   return {
     title: result[0].title,
     description: result[0].description,
+    robots:{
+      index: true,
+      follow: true,
+    },
     openGraph: {
       images: [
         {
@@ -35,6 +39,7 @@ export async function generateMetadata() {
     icons: {
       icon: urlFor(result[0].icon.asset._ref).url(),
     },
+    
   };
 }
 
