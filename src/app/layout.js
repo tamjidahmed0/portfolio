@@ -36,7 +36,7 @@ export async function generateMetadata() {
         },
       ],
 
-      siteName:result[0].description
+      siteName:result[0].title
       
     },
 
