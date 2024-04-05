@@ -1,13 +1,11 @@
-
-import './globals.css'
-import { Inter } from 'next/font/google'
-import icon from '../../public/images/about-image.png'
-import getMeta from '../../lib/getMetaData'
+import "./globals.css";
+import { Inter } from "next/font/google";
+import icon from "../../public/images/about-image.png";
+import getMeta from "../../lib/getMetaData";
 import { urlFor } from "../../sanity/lib/client";
+import SiteSchema from "./components/siteSchema";
 
-const inter = Inter({ subsets: ['latin'] })
-
-
+const inter = Inter({ subsets: ["latin"] });
 
 // export const metadata = {
 //   title: 'Create Next App',
@@ -19,38 +17,34 @@ const inter = Inter({ subsets: ['latin'] })
 // }
 
 export async function generateMetadata() {
-  const result = await getMeta()
-  console.log(result[0])
+  const result = await getMeta();
+  console.log(result[0]);
   return {
-  
-    title: result[0].title, 
+    title: result[0].title,
     description: result[0].description,
-  openGraph:{
-    images:[
-      { 
-        url: urlFor(result[0].meta_image.asset._ref).url(),
-        width: 1000,
-        height: 800,
-      },
-    ]
-  },
-  
-    icons:{
-      icon:  urlFor(result[0].icon.asset._ref).url()
-    }
-  }
+    openGraph: {
+      images: [
+        {
+          url: urlFor(result[0].meta_image.asset._ref).url(),
+          width: 1000,
+          height: 800,
+        },
+      ],
+    },
+
+    icons: {
+      icon: urlFor(result[0].icon.asset._ref).url(),
+    },
+  };
 }
 
-
 export default function RootLayout({ children }) {
-
-
-
-
-
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <SiteSchema />
+        {children}
+      </body>
     </html>
-  )
+  );
 }
