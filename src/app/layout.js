@@ -21,6 +21,7 @@ export async function generateMetadata() {
   console.log(result[0]);
   return {
     title: result[0].title,
+    siteName: result[0].title,
     description: result[0].description,
     robots:{
       index: true,
@@ -34,6 +35,7 @@ export async function generateMetadata() {
           height: 800,
         },
       ],
+      
     },
 
     icons: {
