@@ -9,9 +9,8 @@ export const getProjects = async () => {
 
     try {
         const projects = await sanityFetch({
-            query: query
-        },{
-            cache: 'no-store'
+            query: query,
+            revalidate: 10,
         })
         return projects.data
     } catch (error) {

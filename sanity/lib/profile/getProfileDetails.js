@@ -26,11 +26,10 @@ export const getProfileDetails = async () => {
 
     try {
         const profile = await sanityFetch({
-            query: query
+            query: query,
+            revalidate: 10,
         },
-        {
-            cache: 'no-store'
-        })
+        )
         return profile.data
     } catch (error) {
         console.log('error fetching data')

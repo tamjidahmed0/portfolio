@@ -9,9 +9,8 @@ export const getResumeDetails = async () => {
 
     try {
         const profile = await sanityFetch({
-            query: query
-        },{
-           cache: 'no-store'
+            query: query,
+            revalidate: 10,
         })
         return profile.data
     } catch (error) {

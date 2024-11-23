@@ -12,7 +12,8 @@ export const getHomeDetails = async() =>{
 
     try {
         const profile = await sanityFetch({
-            query: query
+            query: query,
+            revalidate: 10,
         })
         return profile.data 
     } catch (error) {
