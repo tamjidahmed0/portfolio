@@ -6,11 +6,19 @@ import { defineLive } from "next-sanity";
 import { client } from './client'
 
 export const { sanityFetch, SanityLive } = defineLive({ 
-  client: client.withConfig({ 
-    // Live content is currently only available on the experimental API
-    // https://www.sanity.io/docs/api-versioning
-    apiVersion: 'vX' ,
+  client,
+  serverToken:process.env.SANITY_API_READ_TOKEN,
+  browserToken: process.env.SANITY_API_READ_TOKEN,
+  fetchOptions:{
+    revalidate:0
+  }
+  // client: client.withConfig({ 
+  //   // Live content is currently only available on the experimental API
+  //   // https://www.sanity.io/docs/api-versioning
     
-    token: process.env.SANITY_API_READ_TOKEN
-  }) 
+  //   apiVersion: 'vX' ,
+  //   useCdn: false,
+  //   token: process.env.SANITY_API_READ_TOKEN
+  // }) 
+  
 });

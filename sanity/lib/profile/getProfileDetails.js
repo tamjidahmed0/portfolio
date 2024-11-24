@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
 
-export const revalidate = 10
+
 export const getProfileDetails = async () => {
 
     // const query = defineQuery(`*[_type == "profile"]`)
@@ -27,8 +27,8 @@ export const getProfileDetails = async () => {
     try {
         const profile = await sanityFetch({
             query: query,
-            revalidate: 10,
-        },
+
+        }
         )
         return profile.data
     } catch (error) {

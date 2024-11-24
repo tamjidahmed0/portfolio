@@ -1,7 +1,7 @@
 import { defineQuery } from "next-sanity";
 import { sanityFetch } from "../live";
 
-export const revalidate = 10
+
 export const getProjects = async () => {
 
     const query = defineQuery(`*[_type == "projects"] | order(_createdAt desc)`)
@@ -10,7 +10,6 @@ export const getProjects = async () => {
     try {
         const projects = await sanityFetch({
             query: query,
-            revalidate: 10,
         })
         return projects.data
     } catch (error) {
