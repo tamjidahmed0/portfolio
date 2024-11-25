@@ -100,7 +100,7 @@ export default async function RootLayout({ children }) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
 
-        <Suspense fallback={<GlobalLoading />}>
+        <Suspense fallback={<div>loding</div>}>
 
           {children}
         </Suspense>

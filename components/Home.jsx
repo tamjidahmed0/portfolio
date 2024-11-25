@@ -12,8 +12,8 @@ import { Icon } from '@iconify/react';
 
 
 const Home = () => {
-const [aboutData, setAboutData] = useState({})
-const [loading , setLoading] = useState(false)
+  const [aboutData, setAboutData] = useState({});
+  const [loading, setLoading] = useState(true); 
 
   useEffect(() => {
     const fetchAboutData = async () => {
@@ -21,19 +21,17 @@ const [loading , setLoading] = useState(false)
       try {
         const result = await getHomeDetails();
         setAboutData(result);
-        setLoading(false)
       } catch (error) {
-        console.error("Error fetching profile details:", error);
-      } 
+        console.error('Error fetching profile details:', error);
+      } finally {
+        setLoading(false);
+      }
     };
 
     fetchAboutData();
   }, []);
 
-
-
-
-  // Create a reference for the container
+  // Create references for sections
   const aboutMeRef = useRef(null);
   const servicesRef = useRef(null);
 
@@ -41,15 +39,9 @@ const [loading , setLoading] = useState(false)
   const isAboutMeInView = useInView(aboutMeRef, { once: true });
   const isServicesInView = useInView(servicesRef, { once: true });
 
-
-
-
-if(loading){
-return (
-  <AboutSkeleton />
-)
-}
-
+  if (loading) {
+    return <AboutSkeleton />;
+  }
 
   return (
     <motion.div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-white rounded-xl"
