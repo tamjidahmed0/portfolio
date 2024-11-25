@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic';
 
 const Profile = () => {
   const profileRef = useRef(null);
-  const isInView = useInView(profileRef, { once: true });
+  // const isInView = useInView(profileRef, { once: true });
   const [profileData, setProfileData] = useState({});
   const [loading, setLoading] = useState(true); // Start with loading as `true`
 
@@ -28,10 +28,6 @@ const Profile = () => {
       try {
         const result = await getProfileDetails();
         setProfileData(result);
-        console.log(result, 'profile')
-    
-  
-       
       } catch (error) {
         console.error("Error fetching profile details:", error);
       } finally {
@@ -45,7 +41,7 @@ const Profile = () => {
 
 
 
-  if (loading ) {
+  if (loading) {
     // Show a loading spinner or message while data is being fetched
     return (
       <ProfileSkeleton />
@@ -75,13 +71,13 @@ const Profile = () => {
           </div>
           <p className="text-[16px] font-normal text-gray-600">{profileData?.Stack}</p>
 
-          {profileData.available ? 
-          <span className="text-[13px] border border-[#1f7cc9]  px-2 rounded-full mt-3 flex items-center gap-[5px] text-[#1f7cc9] font-semibold animate-pulse "><Icon icon={'mdi:lightning-bolt'} /> Available now</span>
-        :
-        <span className="text-[13px] border border-gray-500  px-2 rounded-full mt-3 flex items-center gap-[5px] text-gray-500 font-semibold "><Icon icon={'mdi:lightning-bolt'} />Not available</span>
-        }
+          {profileData.available ?
+            <span className="text-[13px] border border-[#1f7cc9]  px-2 rounded-full mt-3 flex items-center gap-[5px] text-[#1f7cc9] font-semibold animate-pulse "><Icon icon={'mdi:lightning-bolt'} /> Available now</span>
+            :
+            <span className="text-[13px] border border-gray-500  px-2 rounded-full mt-3 flex items-center gap-[5px] text-gray-500 font-semibold "><Icon icon={'mdi:lightning-bolt'} />Not available</span>
+          }
 
-          
+
 
           {/* Social Media Links */}
           <motion.div
@@ -116,11 +112,11 @@ const Profile = () => {
             animate={!loading ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.8, duration: 0.5 }}
           >
-           
+
             <Icon icon="line-md:phone-call-loop" className=" text-[23px]" />
             <div className="flex flex-col">
               <span className="text-[15px] font-bold text-gray-500">Phone</span>
-              <span className="font-semibold text-[13px]">{profileData.Phone }</span>
+              <span className="font-semibold text-[13px]">{profileData.Phone}</span>
             </div>
           </motion.div>
 
@@ -131,11 +127,11 @@ const Profile = () => {
             animate={!loading ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 1.0, duration: 0.5 }}
           >
-       
+
             <Icon icon="line-md:email" className=" text-[23px]" />
             <div className="flex flex-col">
               <span className="text-[15px] font-bold text-gray-500">Email</span>
-              <span className="font-semibold text-[13px]">{profileData?.Email }</span>
+              <span className="font-semibold text-[13px]">{profileData?.Email}</span>
             </div>
           </motion.div>
 
@@ -146,11 +142,11 @@ const Profile = () => {
             animate={!loading ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 1.2, duration: 0.5 }}
           >
-           
-            <Icon icon="mynaui:location" className=" text-[23px]"  />
+
+            <Icon icon="mynaui:location" className=" text-[23px]" />
             <div className="flex flex-col">
               <span className="text-[15px] font-bold text-gray-500">Location</span>
-              <span className="font-semibold text-[13px]">{profileData?.Location }</span>
+              <span className="font-semibold text-[13px]">{profileData?.Location}</span>
             </div>
           </motion.div>
 

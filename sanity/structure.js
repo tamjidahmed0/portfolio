@@ -8,11 +8,14 @@ export const structure = (S) =>
       S.documentTypeListItem('resume').title('Resume'),
       S.documentTypeListItem('projects').title('Projects'),
       S.divider(),
+      S.documentTypeListItem('seo').title('Seo'),
+
       ...S.documentTypeListItems().filter(
-        (item) => item.getId() && !['profile', 'home', 'resume', 'projects'].includes(item.getId()),
+        (item) => item.getId() && !['profile', 'home', 'resume', 'projects', 'seo'].includes(item.getId()),
       ),
     ])
-
+  
+  
 
 
 

@@ -22,7 +22,6 @@ const [loading , setLoading] = useState(false)
         const result = await getHomeDetails();
         setAboutData(result);
         setLoading(false)
-       console.log(result, 'home.jsx')
       } catch (error) {
         console.error("Error fetching profile details:", error);
       } 
@@ -76,7 +75,7 @@ return (
             transition={{ duration: 0.6 }}
           />
         </div>
-        <p className="font-raleway lg:leading-[25px] lg:text-[16px] text-gray-700">
+        <p className="font-raleway lg:leading-[25px] lg:text-[16px] text-[14px] text-gray-700">
        {aboutData?.about}
         </p>
       </motion.div>
