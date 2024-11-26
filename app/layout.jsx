@@ -66,11 +66,6 @@ const jsonLd = {
 export async function generateMetadata({ params }) {
   const seoResult = await getSeoData()
 
-
-
-
-
-
   return {
     title: seoResult.title,
     description: seoResult.metadescription,
@@ -78,7 +73,19 @@ export async function generateMetadata({ params }) {
     openGraph: {
       title: seoResult.title,
       description: seoResult.metadescription,
-      images: seoResult.image.map((item) => urlFor(item.image).url()) || ''
+      images: seoResult.image.map((item) => urlFor(item.image).width(1200).height(630).url()) || ''
+    },
+    twitter:{
+      title: seoResult.title,
+      description: seoResult.metadescription,
+      keywords: seoResult.keywords.map((item) => item.keyword) || 'tamjid, tamjid ahmed',
+      openGraph: {
+        title: seoResult.title,
+        description: seoResult.metadescription,
+        images: seoResult.image.map((item) => urlFor(item.image).width(1200).height(630).url()) || '',
+        card:'summary_large_image',
+        creator:'Tamjid Ahmed'
+      },
     }
 
   }
