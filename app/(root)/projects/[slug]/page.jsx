@@ -23,7 +23,7 @@ import BlogPostSkeleton from "@/skeleton/BlogPostSkeleton";
 const DynamicPost = () => {
   const { slug } = useParams();
   const [blog, setBlog] = useState({})
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
 
   const [api, setApi] = useState(null);
@@ -61,12 +61,9 @@ const DynamicPost = () => {
       try {
         const result = await getProjectsBySlug(slug)
         setBlog(result)
-        setLoading(false)
-
-
-     
       } catch (error) {
         console.log(error)
+      } finally {
         setLoading(false)
       }
     }

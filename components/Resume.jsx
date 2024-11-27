@@ -11,15 +11,15 @@ import { Icon } from "@iconify/react";
 const Resume = () => {
 
   const [resumeDetails, setResumeDetails] = useState({})
-  const [loading , setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
 
 
-    // References for In-View Animations
-    const educationRef = useRef(null);
-    const experienceRef = useRef(null);
-  
-    const isEducationInView = useInView(educationRef, { once: true });
-    const isExperienceInView = useInView(experienceRef, { once: true });
+  // References for In-View Animations
+  // const educationRef = useRef(null);
+  // const experienceRef = useRef(null);
+
+  // const isEducationInView = useInView(educationRef, { once: true });
+  // const isExperienceInView = useInView(experienceRef, { once: true });
 
   useEffect(() => {
 
@@ -27,10 +27,11 @@ const Resume = () => {
       setLoading(true)
       try {
         const result = await getResumeDetails()
-        setLoading(false)
         setResumeDetails(result)
       } catch (error) {
-          console.log(error)
+        console.log(error)
+      } finally {
+        setLoading(false)
       }
     }
 
@@ -41,8 +42,8 @@ const Resume = () => {
   }, [])
 
 
-  if(loading){
-return <ResumeSkeleton />
+  if (loading) {
+    return <ResumeSkeleton />
   }
 
 
@@ -53,10 +54,10 @@ return <ResumeSkeleton />
     <div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-white rounded-xl lg:w-full">
       {/* Section Header */}
       <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-       className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px]">
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px]">
         <h1>Resume</h1>
         <motion.div
           className="bg-gradient-orange-red w-[73px] h-[2px] lg:w-[252px]"
@@ -68,17 +69,54 @@ return <ResumeSkeleton />
 
       {/* Education and Experience Sections */}
       <div className="flex flex-col lg:flex-row gap-5  lg:gap-28">
+
+
+        {/* Experience Section */}
+        <motion.div
+          className="lg:w-1/2"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="flex items-center text-[30px] font-semibold mb-4">
+            <Icon icon="pajamas:work" className="text-orange-500 me-2 text-[30px]" />
+            Experience
+          </h2>
+          <div>
+            {resumeDetails.experience?.map((value, index) => (
+              <motion.div
+                className="px-4 py-3 rounded-xl mb-3"
+                key={index}
+                style={{ backgroundColor: value.color?.value }}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: index * 0.2, duration: 0.5 }}
+              >
+                <span className="text-gray-500">{value.year}</span>
+                <div className="font-semibold text-[20px] mb-2">
+                  <span>{value.field}</span>
+                </div>
+                <p>{value.company}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+
+
+
+
+
         {/* Education Section */}
         <motion.div
           className="lg:w-1/2"
-          ref={educationRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="flex items-center text-[30px] font-semibold mb-4">
             {/* <GraduationCap size={30} className="text-orange-500 me-2" /> */}
-            <Icon icon="simple-line-icons:graduation" className="text-orange-500 me-2 text-[30px]"  />
+            <Icon icon="simple-line-icons:graduation" className="text-orange-500 me-2 text-[30px]" />
             Education
           </h2>
           <div>
@@ -88,7 +126,7 @@ return <ResumeSkeleton />
                 key={index}
                 style={{ backgroundColor: value.color?.value }}
                 initial={{ opacity: 0, x: -20 }}
-                animate={ { opacity: 1, x: 0 } }
+                animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
               >
                 <span className="text-gray-500">{value.year}</span>
@@ -101,38 +139,7 @@ return <ResumeSkeleton />
           </div>
         </motion.div>
 
-        {/* Experience Section */}
-        <motion.div
-          className="lg:w-1/2"
-          ref={experienceRef}
-          initial={{ opacity: 0, y: 50 }}
-          animate={{ opacity: 1, y: 0 } }
-          transition={{ duration: 0.8 }}
-        >
-          <h2 className="flex items-center text-[30px] font-semibold mb-4">
-            {/* <BriefcaseBusiness size={30} className="text-orange-500 me-2" /> */}
-            <Icon icon="pajamas:work" className="text-orange-500 me-2 text-[30px]" />
-            Experience
-          </h2>
-          <div>
-            {resumeDetails.experience?.map((value, index) => (
-              <motion.div
-                className="px-4 py-3 rounded-xl mb-3"
-                key={index}
-                style={{ backgroundColor: value.color?.value }}
-                initial={{ opacity: 0, x: 20 }}
-                animate={ { opacity: 1, x: 0 } }
-                transition={{ delay: index * 0.2, duration: 0.5 }}
-              >
-                <span className="text-gray-500">{value.year}</span>
-                <div className="font-semibold text-[20px] mb-2">
-                  <span>{value.field}</span>
-                </div>
-                <p>{value.company}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+
       </div>
 
 
@@ -182,7 +189,7 @@ return <ResumeSkeleton />
                 key={index}
                 className="px-3 py-2 bg-[#E1E8EF] rounded-xl"
                 initial={{ scale: 0 }}
-                animate={ { scale: 1 }}
+                animate={{ scale: 1 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 {value.soft_skills}

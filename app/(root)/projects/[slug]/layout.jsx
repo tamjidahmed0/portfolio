@@ -1,6 +1,9 @@
 
 import {Poppins, Raleway } from 'next/font/google'
 import { getProjectsBySlug } from '@/sanity/lib/projects/getProject';
+import { urlFor } from '@/sanity/lib/image';
+
+
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -42,21 +45,30 @@ export async function generateMetadata(props) {
   
   
 
-
-console.log()
-
-  if (!result) {
-    return {
-      title: "Project Not Found",
-      description: "The requested project could not be found.",
-    };
-  }
+ 
 
   // Return metadata based on fetched data
   return {
     title: result.title || "Default Title",
     description:  extractMetaDescription(result.body) || '',
-    keywords: result.technology.map((item)=> item.technology)|| ''
+    keywords: result.technology.map((item)=> item.technology)|| '',
+    openGraph: {
+      title: result.title,
+      description:  extractMetaDescription(result.body) || '',
+      images: result.carousel.map((item) => urlFor(item.asset).url()) || ''
+    },
+  twitter:{
+    title: result.title,
+    description:  extractMetaDescription(result.body) || '',
+    keywords: result.technology.map((item)=> item.technology)|| '',
+    openGraph: {
+      title: result.title,
+      description:  extractMetaDescription(result.body) || '',
+      images: urlFor(result.projectThumbnail).url() || '',
+      card:'summary_large_image',
+      creator:'Tamjid Ahmed'
+    },
+  }
   };
 }
 
