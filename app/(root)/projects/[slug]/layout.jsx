@@ -44,7 +44,9 @@ export async function generateMetadata(props) {
   };
   
   
-
+  if (!result) {
+  return
+  }
  
 
   // Return metadata based on fetched data
