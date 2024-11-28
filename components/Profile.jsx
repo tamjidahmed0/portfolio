@@ -1,8 +1,6 @@
 'use client';
 import { useState, useEffect, useRef } from "react";
-
 import Image from "next/image";
-import tamjid from '@/assets/tamjid.jpg';
 import { motion, useInView } from "framer-motion";
 import { getProfileDetails } from "@/sanity/lib/profile/getProfileDetails";
 import ProfileSkeleton from "@/skeleton/ProfileSkeleton";
@@ -51,7 +49,7 @@ const Profile = () => {
   return (
 
     <motion.div
-      className="w-full flex flex-col items-center justify-center "
+      className="w-full flex flex-col items-center justify-center mt-10 lg:mt-0 "
       ref={profileRef}
       initial={{ opacity: 0, y: 50 }}
       animate={!loading ? { opacity: 1, y: 0 } : {}}

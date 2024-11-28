@@ -14,15 +14,8 @@ const Resume = () => {
   const [loading, setLoading] = useState(true)
 
 
-  // References for In-View Animations
-  // const educationRef = useRef(null);
-  // const experienceRef = useRef(null);
-
-  // const isEducationInView = useInView(educationRef, { once: true });
-  // const isExperienceInView = useInView(experienceRef, { once: true });
 
   useEffect(() => {
-
     const fetchResume = async () => {
       setLoading(true)
       try {

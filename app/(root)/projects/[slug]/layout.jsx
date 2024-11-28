@@ -1,21 +1,6 @@
-
-import {Poppins, Raleway } from 'next/font/google'
 import { getProjectsBySlug } from '@/sanity/lib/projects/getProject';
 import { urlFor } from '@/sanity/lib/image';
 
-
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  weight: '600',
-  variable: '--font-poppins',
-});
-
-const raleway = Poppins({
-  subsets: ['latin'],
-  weight: ['400','500', '600'],
-  variable: '--font-raleway',
-});
 
 
 export async function generateMetadata(props) {
@@ -28,7 +13,7 @@ export async function generateMetadata(props) {
     if (!body || !Array.isArray(body)) {
       return '';
     }
-  
+
     // Extract the first block of text
     return body
       .map((block) => {
@@ -42,35 +27,35 @@ export async function generateMetadata(props) {
       .join(' ') // Combine all blocks into a single string
       .slice(0, 160); // Limit to 160 characters for meta description
   };
-  
-  
+
+
   if (!result) {
-  return
+    return
   }
- 
+
 
   // Return metadata based on fetched data
   return {
     title: result.title || "Default Title",
-    description:  extractMetaDescription(result.body) || '',
-    keywords: result.technology.map((item)=> item.technology)|| '',
+    description: extractMetaDescription(result.body) || '',
+    keywords: result.technology.map((item) => item.technology) || '',
     openGraph: {
       title: result.title,
-      description:  extractMetaDescription(result.body) || '',
+      description: extractMetaDescription(result.body) || '',
       images: result.carousel.map((item) => urlFor(item.asset).url()) || ''
     },
-  twitter:{
-    title: result.title,
-    description:  extractMetaDescription(result.body) || '',
-    keywords: result.technology.map((item)=> item.technology)|| '',
-    openGraph: {
+    twitter: {
       title: result.title,
-      description:  extractMetaDescription(result.body) || '',
-      images: urlFor(result.projectThumbnail).url() || '',
-      card:'summary_large_image',
-      creator:'Tamjid Ahmed'
-    },
-  }
+      description: extractMetaDescription(result.body) || '',
+      keywords: result.technology.map((item) => item.technology) || '',
+      openGraph: {
+        title: result.title,
+        description: extractMetaDescription(result.body) || '',
+        images: urlFor(result.projectThumbnail).url() || '',
+        card: 'summary_large_image',
+        creator: 'Tamjid Ahmed'
+      },
+    }
   };
 }
 
@@ -78,10 +63,10 @@ export async function generateMetadata(props) {
 
 
 export default async function getLayout({ children }) {
-  
+
   return (
-  <main>
+    <main>
       {children}
-  </main>
+    </main>
   );
 }

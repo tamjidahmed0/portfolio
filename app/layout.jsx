@@ -28,10 +28,27 @@ const jsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Tamjid Ahmed",
-  "hasOccupation": {
-    "@type": "Occupation",
-    "name": "Full Stack Developer",
-  },
+  "jobTitle": "Full-Stack Developer",
+  "description": "Tamjid Ahmed is a Full-Stack Developer specializing in JavaScript, Node.js, React, and creating modern web and mobile applications.",
+  "knowsAbout": [
+    "Web Development",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "API Development",
+    "Responsive Design",
+    "Full-Stack Development",
+    "RESTful APIs"
+  ],
+
+  "skills": [
+    "MERN Stack",
+    "React Native",
+    "Docker",
+    "Redis",
+    "Socket.IO"
+  ],
+
   "email": "mailto:tamjidahmed050@gmail.com",  // Your email
   "telephone": "+8801920284077",  // Your phone number
   "address": {
@@ -42,10 +59,10 @@ const jsonLd = {
   "image": "https://cdn.sanity.io/images/qwrysc9v/production/05f557e30437edce8e65931a06e58b590e534e6d-950x960.jpg",  // Profile image URL
   "url": "https://tamjidahmed.com",  // Link to your portfolio
   "sameAs": [
-    "https://facebook.com/tamjid.ahmed.official1",
+    "https://www.facebook.com/tamjid.ahmed.official1",
     "https://www.linkedin.com/in/tamjidahmedofficial",  // LinkedIn profile
-    "https://github.com/tamjidahmed0",  // GitHub profile
-    "https://x.com/tamjidahmed_bd"  // Twitter profile (if applicable)
+    "https://www.github.com/tamjidahmed0",  // GitHub profile
+    "https://www.x.com/tamjidahmed_bd"  // Twitter profile (if applicable)
   ]
 };
 
@@ -63,10 +80,11 @@ export async function generateMetadata({ params }) {
     keywords: seoResult.keywords.map((item) => item.keyword) || 'tamjid, tamjid ahmed',
     openGraph: {
       title: seoResult.title,
+      siteName: seoResult.site_name,
       description: seoResult.metadescription,
       images: seoResult.image.map((item) => urlFor(item.image).width(1200).height(630).url()) || ''
     },
-    twitter:{
+    twitter: {
       title: seoResult.title,
       description: seoResult.metadescription,
       keywords: seoResult.keywords.map((item) => item.keyword) || 'tamjid, tamjid ahmed',
@@ -74,8 +92,8 @@ export async function generateMetadata({ params }) {
         title: seoResult.title,
         description: seoResult.metadescription,
         images: seoResult.image.map((item) => urlFor(item.image).width(1200).height(630).url()) || '',
-        card:'summary_large_image',
-        creator:'Tamjid Ahmed'
+        card: 'summary_large_image',
+        creator: 'Tamjid Ahmed'
       },
     }
 

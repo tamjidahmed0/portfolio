@@ -68,7 +68,7 @@ const Work = () => {
                     </div>
                 ) : (
                   
-                      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7 mt-10'>
+                      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 mt-10'>
                       {project.map((value, index) => (
                             <motion.div
                                 className="w-full"

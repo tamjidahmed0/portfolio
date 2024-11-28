@@ -9,6 +9,14 @@ export const SeoType = defineType({
   fields: [
 
     defineField({
+      title: 'Set site name',
+      name:'site_name',
+      description:'Set website name that show in web result.',
+      type: 'string'
+  }),
+
+
+    defineField({
         title: 'Set website title',
         name:'title',
         description:'Set website title that show in web result.',
