@@ -3,8 +3,8 @@ import { Icon } from "@iconify/react";
 
 const DesktopNavigation = ({TabsList, TabsTrigger}) => {
   return (
-    <div className="max-lg:hidden w-full h-[80px] flex  justify-end   ">
-          <TabsList className=" bg-[#F2F7FC]   gap-[30px]     py-3 px-10 border  ">
+    <div className="max-lg:hidden w-full h-[80px] flex  justify-end  ">
+          <TabsList className=" bg-[#252728]   gap-[30px]     py-3 px-10 border  ">
           <TabsTrigger
             value="home"
             className="flex flex-col w-[50px] h-[50px] bg-[#E1E8EF] font-poppins font-normal text-[#1A1003]"

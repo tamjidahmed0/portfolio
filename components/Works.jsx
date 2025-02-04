@@ -40,7 +40,7 @@ const Work = () => {
 
     return (
         <motion.div
-            className='px-[30px] py-[20px] bg-white rounded-xl'
+            className='px-[30px] py-[20px] bg-[#252728] rounded-xl'
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -51,7 +51,7 @@ const Work = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
             >
-                <h1>Works</h1>
+                <h1 className='text-white'>Works</h1>
                 <motion.div
                     className="bg-gradient-orange-red w-[73px] h-[2px] lg:w-[252px]"
                     initial={{ scaleX: 0 }}
@@ -80,13 +80,13 @@ const Work = () => {
                                     delay: index * 0.2, // Stagger animation for each item
                                 }}
                             >
-                                <div className="bg-white flex justify-center">
+                                <div className=" flex justify-center">
                                     <Link href={`/projects/${value.slug.current}`} className="relative group">
                                         <Image
                                             src={urlFor(value.projectThumbnail).url()}
                                             alt="tamjid"
-                                            width={600}
-                                            height={100}
+                                            width={1000}
+                                            height={1000}
                                             className="rounded-xl border lg:w-[500px] md:w-[700px] w-[291px] h-[400px] object-cover object-center transition-transform duration-300 group-hover:scale-105"
                                         />
                                         <div className="absolute bottom-0 bg-[#FFE3BF] w-full opacity-85 rounded-b-xl lg:h-20 flex flex-col justify-center items-center transition-all duration-300 group-hover:bg-[#FFD5A3] group-hover:translate-y-[-10px]">

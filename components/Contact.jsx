@@ -43,14 +43,14 @@ const ContactContent = () => {
 
 
   return (
-    <div className="bg-white px-[30px] py-[20px] rounded-xl">
+    <div className="bg-[#252728] px-[30px] py-[20px] rounded-xl">
     <Toaster />
     {/* Animated Heading */}
     <motion.div
       className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px]"
       {...fadeInUp}
     >
-      <h1>Contact</h1>
+      <h1 className='text-white'>Contact</h1>
       <div className="bg-gradient-orange-red w-[73px] h-[2px] lg:w-[252px]" />
     </motion.div>
 
@@ -62,15 +62,15 @@ const ContactContent = () => {
       animate="animate"
     >
       <motion.div
-        className="w-full p-6 bg-white rounded-lg shadow-md"
+        className="w-full p-6  rounded-lg shadow-md"
         {...fadeInUp}
       >
-        <p className="text-gray-700 text-lg">
+        <p className="text-gray-400 text-lg">
           I am always open to discussing{" "}
-          <strong className="text-black">
+          <strong className="text-white">
             new projects, opportunities in tech world, and more so
           </strong>{" "}
-          <strong className="text-black">partnership</strong>.
+          <strong className="text-white">partnership</strong>.
         </p>
 
         {/* Animated Form */}
@@ -83,7 +83,7 @@ const ContactContent = () => {
           <motion.div className="mb-4" {...fadeInUp}>
             <label
               htmlFor="name"
-              className="block text-gray-600 font-medium"
+              className="block text-gray-200 font-medium"
             >
               Name:
             </label>
@@ -92,7 +92,7 @@ const ContactContent = () => {
               id="name"
               name="name"
               placeholder="Your Name"
-              className="mt-1 w-full border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="mt-1 w-full border text-white bg-[#252728] border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
           </motion.div>
 
@@ -100,7 +100,7 @@ const ContactContent = () => {
           <motion.div className="mb-4" {...fadeInUp}>
             <label
               htmlFor="email"
-              className="block text-gray-600 font-medium"
+              className="block text-gray-200 font-medium"
             >
               Email:
             </label>
@@ -109,7 +109,7 @@ const ContactContent = () => {
               id="email"
               name="email"
               placeholder="Your Email"
-              className="mt-1 w-full border border-gray-300 rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="mt-1 w-full border text-white border-gray-300 bg-[#252728] rounded-lg p-2.5 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
           </motion.div>
 
@@ -117,7 +117,7 @@ const ContactContent = () => {
           <motion.div className="mb-4" {...fadeInUp}>
             <label
               htmlFor="message"
-              className="block text-gray-600 font-medium"
+              className="block text-gray-200 font-medium"
             >
               Message:
             </label>
@@ -125,7 +125,7 @@ const ContactContent = () => {
               id="message"
               name="message"
               placeholder="Your Message"
-              className="mt-1 w-full border border-gray-300 rounded-lg p-2.5 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="mt-1 w-full border text-white border-gray-300 bg-[#252728] rounded-lg p-2.5 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
           </motion.div>
 

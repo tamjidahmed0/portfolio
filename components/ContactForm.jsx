@@ -48,8 +48,9 @@ const ContactForm = () => {
               id="message"
               name="message"
               placeholder="Your Message"
-              className="mt-1 w-full border border-gray-300 rounded-lg p-2.5 h-24 resize-none focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
+              className="mt-1 w-full border border-gray-300 rounded-lg p-2.5 h-24 resize-none bg-[#1E1E1E]  placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
             />
+
           </div>
 
           {/* Submit Button */}

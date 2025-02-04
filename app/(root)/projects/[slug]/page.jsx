@@ -87,7 +87,7 @@ const DynamicPost = () => {
 
   return (
     <motion.div
-      className="px-9 py-10"
+      className="px-9 py-10   bg-[#1C1C1D]"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -95,7 +95,7 @@ const DynamicPost = () => {
       <div className="flex flex-col lg:flex-row gap-[20px] lg:items-start">
         {/* Carousel Section */}
         <motion.div
-          className="lg:w-[30%] bg-white lg:sticky lg:top-0 px-5 py-10 rounded-xl"
+          className="lg:w-[30%] bg-[#252728] lg:sticky lg:top-0 px-5 py-10 rounded-xl"
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -114,8 +114,8 @@ const DynamicPost = () => {
                 <CarouselItem key={index}>
                   <Image
                     src={urlFor(value).url()}
-                    width={500}
-                    height={500}
+                    width={1000}
+                    height={1000}
                     alt="tamjid"
                     className="h-80 object-cover object-center rounded-xl"
                   />
@@ -127,14 +127,14 @@ const DynamicPost = () => {
 
         {/* Main Content Section */}
         <motion.div
-          className="lg:w-[70%] bg-white p-9 rounded-xl"
+          className="lg:w-[70%] bg-[#252728] p-9 rounded-xl"
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
           {/* Blog Title */}
           <motion.h1
-            className="text-[20px] lg:text-[40px] font-bold border-b"
+            className="text-[20px] lg:text-[40px] font-bold border-b text-white"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
@@ -181,7 +181,7 @@ const DynamicPost = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <h1 className="text-[16px] lg:text-[20px] font-poppins font-bold capitalize">
+            <h1 className="text-[16px] lg:text-[20px] font-poppins font-bold capitalize text-white">
               Technologies used
             </h1>
             <div className="mt-3 flex flex-wrap gap-[10px]">

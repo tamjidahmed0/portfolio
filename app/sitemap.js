@@ -1,7 +1,7 @@
 export default function sitemap() {
     return [
       {
-        url: 'https://tamjidahmed.com',
+        url: 'https://www.tamjidahmed.com',
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 1,

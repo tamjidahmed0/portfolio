@@ -44,13 +44,13 @@ const Resume = () => {
 
 
   return (
-    <div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-white rounded-xl lg:w-full">
+    <div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-[#252728] rounded-xl lg:w-full">
       {/* Section Header */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px]">
+        className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px] text-white">
         <h1>Resume</h1>
         <motion.div
           className="bg-gradient-orange-red w-[73px] h-[2px] lg:w-[252px]"
@@ -71,7 +71,7 @@ const Resume = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="flex items-center text-[30px] font-semibold mb-4">
+          <h2 className="flex items-center text-[30px] font-semibold mb-4 text-white">
             <Icon icon="pajamas:work" className="text-orange-500 me-2 text-[30px]" />
             Experience
           </h2>
@@ -85,11 +85,11 @@ const Resume = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
               >
-                <span className="text-gray-500">{value.year}</span>
+                <span className="text-gray-300">{value.year}</span>
                 <div className="font-semibold text-[20px] mb-2">
-                  <span>{value.field}</span>
+                  <span className="text-white">{value.field}</span>
                 </div>
-                <p>{value.company}</p>
+                <p className="text-gray-200">{value.company}</p>
               </motion.div>
             ))}
           </div>
@@ -107,7 +107,7 @@ const Resume = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h2 className="flex items-center text-[30px] font-semibold mb-4">
+          <h2 className="flex items-center text-[30px] font-semibold mb-4 text-white">
             {/* <GraduationCap size={30} className="text-orange-500 me-2" /> */}
             <Icon icon="simple-line-icons:graduation" className="text-orange-500 me-2 text-[30px]" />
             Education
@@ -122,11 +122,11 @@ const Resume = () => {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: index * 0.2, duration: 0.5 }}
               >
-                <span className="text-gray-500">{value.year}</span>
+                <span className="text-gray-300">{value.year}</span>
                 <div className="font-semibold text-[20px] mb-2">
-                  <span>{value.subject}</span>
+                  <span className="text-white">{value.subject}</span>
                 </div>
-                <p>{value.institute}</p>
+                <p className="text-gray-200">{value.institute}</p>
               </motion.div>
             ))}
           </div>
@@ -140,7 +140,7 @@ const Resume = () => {
       {/* skills and soft skills section */}
 
       <motion.div
-        className="flex flex-col lg:flex-row bg-[#F8FBFB] gap-7 lg:gap-28"
+        className="flex flex-col lg:flex-row bg-[#1C1C1D] rounded-lg p-4 gap-7 lg:gap-28"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
@@ -152,7 +152,7 @@ const Resume = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
         >
-          <h1 className="text-[20px] lg:text-[27px] font-poppins capitalize">Work Skills</h1>
+          <h1 className="text-[20px] lg:text-[27px] font-poppins capitalize text-white">Work Skills</h1>
           <div className="mt-3 flex flex-wrap gap-[10px]">
             {resumeDetails.skills?.map((value, index) => (
               <motion.span
@@ -175,7 +175,7 @@ const Resume = () => {
           animate={{ x: 0, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
-          <h1 className="text-[20px] lg:text-[27px] font-poppins capitalize">Soft Skills</h1>
+          <h1 className="text-[20px] lg:text-[27px] font-poppins capitalize text-white">Soft Skills</h1>
           <div className="mt-3 flex flex-wrap gap-[10px]">
             {resumeDetails.soft_skills?.map((value, index) => (
               <motion.span

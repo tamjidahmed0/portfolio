@@ -39,7 +39,7 @@ const PostContent = ({ body }) => {
   };
 
   return (
-    <div className="prose prose-lg max-w-none">
+    <div className="prose prose-lg max-w-none text-gray-200">
       <PortableText value={body} components={components} />
     </div>
   );

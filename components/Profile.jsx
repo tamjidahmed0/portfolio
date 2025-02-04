@@ -10,8 +10,6 @@ import { Icon } from '@iconify/react';
 
 
 
-export const dynamic = 'force-dynamic';
-
 const Profile = () => {
   const profileRef = useRef(null);
   // const isInView = useInView(profileRef, { once: true });
@@ -55,7 +53,7 @@ const Profile = () => {
       animate={!loading ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.8 }}
     >
-      <div className="bg-white w-full flex flex-col items-center justify-evenly gap-[10px] rounded-2xl py-10 px-3">
+      <div className="bg-[#252728] w-full flex flex-col items-center justify-evenly gap-[10px] rounded-2xl py-10 px-3">
         {/* Profile Image and Details */}
         <motion.div
           className="flex flex-col items-center"
@@ -63,14 +61,14 @@ const Profile = () => {
           animate={!loading ? { opacity: 1, y: 0 } : {}}
           transition={{ delay: 0.2, duration: 0.8 }}
         >
-          <Image src={profileData.mainImage.imageUrl} alt={profileData.mainImage.alt} width={100} height={100} className="w-[100px] h-[100px] rounded-xl" />
+          <Image src={profileData.mainImage.imageUrl} alt={profileData.mainImage.alt} width={1000} height={1000} className="w-[150px] h-[150px] rounded-xl" />
           <div className="flex items-center relative">
-            <h1 className="text-[25px] font-bold mt-3">{profileData?.Name}</h1>
+            <h1 className="text-[30px] font-bold mt-3 text-white">{profileData?.Name}</h1>
           </div>
-          <p className="text-[16px] font-normal text-gray-600">{profileData?.Stack}</p>
+          <p className="text-[16px] font-normal text-gray-300">{profileData?.Stack}</p>
 
           {profileData.available ?
-            <span className="text-[13px] border border-[#1f7cc9]  px-2 rounded-full mt-3 flex items-center gap-[5px] text-[#1f7cc9] font-semibold animate-pulse "><Icon icon={'mdi:lightning-bolt'} /> Available now</span>
+            <span className="text-[13px] border border-[#219bff]  px-2 rounded-full mt-3 flex items-center gap-[5px] text-[#1f7cc9] font-semibold animate-pulse "><Icon icon={'mdi:lightning-bolt'} /> Available now</span>
             :
             <span className="text-[13px] border border-gray-500  px-2 rounded-full mt-3 flex items-center gap-[5px] text-gray-500 font-semibold "><Icon icon={'mdi:lightning-bolt'} />Not available</span>
           }
@@ -79,26 +77,26 @@ const Profile = () => {
 
           {/* Social Media Links */}
           <motion.div
-            className="flex gap-[20px] mt-6"
+            className="flex gap-[20px]  mt-6"
             initial={{ scale: 0 }}
             animate={!loading ? { scale: 1 } : {}}
             transition={{ delay: 0.4, duration: 0.6 }}
           >
-            <a href={profileData?.Facebook} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#F2F7FC] rounded transition duration-300 hover:bg-[#1877F2] hover:text-white">
+            <a href={profileData?.Facebook} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#202020] rounded transition duration-300 hover:bg-[#1877F2] hover:text-white">
               <Icon icon="logos:facebook" className="text-[30px]" />
             </a>
-            <a href={profileData?.Linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#F2F7FC] rounded transition duration-300 hover:bg-[#0077B5] hover:text-white">
+            <a href={profileData?.Linkedin} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#202020] rounded transition duration-300 hover:bg-[#0077B5] hover:text-white">
               <Icon icon="devicon:linkedin" className="text-[30px]" />
             </a>
-            <a href={profileData?.Github} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#F2F7FC] rounded transition duration-300 hover:bg-[#000] hover:text-white">
-              <Icon icon="simple-icons:github" className="text-[30px]" />
+            <a href={profileData?.Github} target="_blank" rel="noopener noreferrer" className="p-3 bg-[#202020] rounded transition duration-300 hover:bg-[#000] text-white ">
+              <Icon icon="simple-icons:github" className="text-[30px] " />
             </a>
           </motion.div>
         </motion.div>
 
         {/* Contact Info and Resume Button */}
         <motion.div
-          className="bg-[#F2F5F9] flex flex-col items-center rounded-2xl py-7 gap-[20px] w-full"
+          className="bg-[#1C1C1D] flex flex-col items-center rounded-2xl py-7 gap-[20px] w-full"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={!loading ? { opacity: 1, scale: 1 } : {}}
           transition={{ delay: 0.6, duration: 0.8 }}
@@ -111,10 +109,10 @@ const Profile = () => {
             transition={{ delay: 0.8, duration: 0.5 }}
           >
 
-            <Icon icon="line-md:phone-call-loop" className=" text-[23px]" />
+            <Icon icon="line-md:phone-call-loop" className=" text-[23px] text-white" />
             <div className="flex flex-col">
-              <span className="text-[15px] font-bold text-gray-500">Phone</span>
-              <span className="font-semibold text-[13px]">{profileData.Phone}</span>
+              <span className="text-[15px] font-bold text-gray-300">Phone</span>
+              <span className="font-semibold text-[13px] text-white">{profileData.Phone}</span>
             </div>
           </motion.div>
 
@@ -126,10 +124,10 @@ const Profile = () => {
             transition={{ delay: 1.0, duration: 0.5 }}
           >
 
-            <Icon icon="line-md:email" className=" text-[23px]" />
+            <Icon icon="line-md:email" className=" text-[23px] text-white" />
             <div className="flex flex-col">
-              <span className="text-[15px] font-bold text-gray-500">Email</span>
-              <span className="font-semibold text-[13px]">{profileData?.Email}</span>
+              <span className="text-[15px] font-bold text-gray-300">Email</span>
+              <span className="font-semibold text-[13px] text-white">{profileData?.Email}</span>
             </div>
           </motion.div>
 
@@ -141,10 +139,10 @@ const Profile = () => {
             transition={{ delay: 1.2, duration: 0.5 }}
           >
 
-            <Icon icon="mynaui:location" className=" text-[23px]" />
+            <Icon icon="mynaui:location" className=" text-[23px] text-white" />
             <div className="flex flex-col">
-              <span className="text-[15px] font-bold text-gray-500">Location</span>
-              <span className="font-semibold text-[13px]">{profileData?.Location}</span>
+              <span className="text-[15px] font-bold text-gray-300">Location</span>
+              <span className="font-semibold text-[13px] text-white">{profileData?.Location}</span>
             </div>
           </motion.div>
 
@@ -154,7 +152,7 @@ const Profile = () => {
             download="Tamjid_Ahmed_Resume.pdf" // Optional: Specify a default filename for the downloaded file
             target="_blank"
             rel="noopener noreferrer" // Security best practice
-            className="w-[167px] h-[36px] flex items-center justify-center gap-[8px] font-semibold text-white bg-gradient-orange-red rounded-2xl text-[15px]"
+            className=" px-3 py-2 flex items-center justify-center gap-[8px] font-semibold text-white bg-gradient-orange-red rounded-2xl text-[15px]"
             initial={{ scale: 0 }}
             animate={!loading ? { scale: 1 } : {}}
             transition={{ delay: 1.4, duration: 0.6 }}

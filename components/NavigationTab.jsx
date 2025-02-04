@@ -53,7 +53,7 @@ const NavigationTabContent = () => {
         </div>
       </div>
 
-      <TabsList className="bg-[#F2F7FC] flex items-center gap-[30px] px-10 h-[100px] fixed inset-x-0 bottom-0 border-t lg:absolute lg:bottom-auto lg:left-0 lg:top-0 lg:inset-x-auto lg:flex-col lg:h-full lg:hidden">
+      <TabsList className="bg-[#252728] flex items-center gap-[30px] px-10 h-[100px] fixed inset-x-0 bottom-0 border-t lg:absolute lg:bottom-auto lg:left-0 lg:top-0 lg:inset-x-auto lg:flex-col lg:h-full lg:hidden">
         <TabsTrigger
           value="home"
           className="flex flex-col w-[50px] h-[50px] bg-[#E1E8EF] font-poppins font-normal text-[#1A1003]"

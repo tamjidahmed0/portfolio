@@ -36,7 +36,7 @@ const Home = () => {
   }
 
   return (
-    <motion.div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-white rounded-xl"
+    <motion.div className="px-[30px] py-[20px] flex flex-col gap-[30px] bg-[#252728] rounded-xl"
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8 }}
@@ -48,7 +48,7 @@ const Home = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
       >
-        <div className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px]">
+        <div className="flex items-center gap-[20px] text-[25px] uppercase font-semibold lg:text-[40px] text-white">
           <h1>About Me</h1>
           <motion.div
             className="bg-gradient-orange-red w-[73px] h-[2px] lg:w-[252px]"
@@ -57,7 +57,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
           />
         </div>
-        <p className="font-raleway lg:leading-[25px] lg:text-[16px] text-[14px] text-gray-700">
+        <p className="font-raleway lg:leading-[25px] lg:text-[16px] text-[14px] text-gray-300">
           {aboutData?.about}
         </p>
       </motion.div>
@@ -68,7 +68,7 @@ const Home = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.8 }}
       >
-        <h1 className="text-[25px] capitalize font-semibold lg:text-[40px]">
+        <h1 className="text-[25px] capitalize font-semibold lg:text-[40px] text-white">
           What I Do!
         </h1>
 
@@ -76,7 +76,7 @@ const Home = () => {
           {aboutData?.skillsdescription?.map((value, index) => (
             <motion.div
               key={index}
-              className="px-6 py-7 rounded-xl flex flex-col"
+              className="px-6 py-7 rounded-xl flex flex-col shadow-xl"
               style={{ backgroundColor: value?.color?.value || "#ffffff" }} // Default to white if undefined
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -89,11 +89,11 @@ const Home = () => {
                     <Icon icon={value.icons.name} color={value?.iconColor?.value || "#000000"} /> // Default color to black if undefined
                   )}
                 </div>
-                <span className="capitalize text-[15px] lg:text-[24px]">
+                <span className="capitalize text-[15px] lg:text-[24px] text-white">
                   {value?.title || "No Title"} {/* Fallback if title is undefined */}
                 </span>
               </div>
-              <p className="font-raleway font-normal lg:text-[16px] lg:leading-[20px] mt-1 break-words text-[13px] text-gray-700">
+              <p className="font-raleway font-normal lg:text-[16px] lg:leading-[20px] mt-1 break-words text-[13px] text-gray-200">
                 {value?.description || "No description available."} {/* Fallback if description is undefined */}
               </p>
             </motion.div>
