@@ -60,57 +60,57 @@ const Work = () => {
                 />
             </motion.div>
 
-          
-
-                {project.length === 0 ? (
-                    <div className='flex justify-center mt-20 font-semibold'> 
-                        <h1>No works available ☹️</h1>
-                    </div>
-                ) : (
-                  
-                      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 mt-10'>
-                      {project.map((value, index) => (
-                            <motion.div
-                                className="w-full"
-                                key={index}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{
-                                    duration: 0.5,
-                                    delay: index * 0.2, // Stagger animation for each item
-                                }}
-                            >
-                                <div className=" flex justify-center">
-                                    <Link href={`/projects/${value.slug.current}`} className="relative group">
-                                        <Image
-                                            src={urlFor(value.projectThumbnail).url()}
-                                            alt="tamjid"
-                                            width={1000}
-                                            height={1000}
-                                            className="rounded-xl border lg:w-[500px] md:w-[700px] w-[291px] h-[400px] object-cover object-center transition-transform duration-300 group-hover:scale-105"
-                                        />
-                                        <div className="absolute bottom-0 bg-[#FFE3BF] w-full opacity-85 rounded-b-xl lg:h-20 flex flex-col justify-center items-center transition-all duration-300 group-hover:bg-[#FFD5A3] group-hover:translate-y-[-10px]">
-                                            <span className="capitalize lg:text-[20px] text-gray-600 group-hover:text-gray-800">
-                                                {value.type}
-                                            </span>
-                                            <span className="capitalize lg:text-[20px] font-bold group-hover:text-gray-900">
-                                                {value.title}
-                                            </span>
-                                        </div>
-                                    </Link>
-                                </div>
-                            </motion.div>
-                        ))}
-                      </div>
-
-                 
-                 
-                )
-
-                }
 
 
-            
+            {project.length === 0 ? (
+                <div className='flex justify-center mt-20 font-semibold'>
+                    <h1>No content available ☹️</h1>
+                </div>
+            ) : (
+
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-7 mt-10'>
+                    {project.map((value, index) => (
+                        <motion.div
+                            className="w-full"
+                            key={index}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{
+                                duration: 0.5,
+                                delay: index * 0.2, // Stagger animation for each item
+                            }}
+                        >
+                            <div className=" flex justify-center">
+                                <Link href={`/projects/${value.slug.current}`} className="relative group">
+                                    <Image
+                                        src={urlFor(value.projectThumbnail).url()}
+                                        alt="tamjid"
+                                        width={1000}
+                                        height={1000}
+                                        className="rounded-xl border  object-cover object-center transition-transform duration-300 group-hover:scale-105 aspect-video"
+                                    />
+                                    <div className="absolute bottom-0 bg-[#FFE3BF] w-full opacity-85 rounded-b-xl lg:h-12 flex flex-col justify-center items-center transition-all duration-300 group-hover:bg-[#FFD5A3] group-hover:translate-y-[-10px]">
+                                        <span className="capitalize lg:text-[16px] text-gray-600 group-hover:text-gray-800">
+                                            {value.type}
+                                        </span>
+                                        <span className="capitalize lg:text-[17px] font-bold group-hover:text-gray-900">
+                                            {value.title}
+                                        </span>
+                                    </div>
+                                </Link>
+                            </div>
+                        </motion.div>
+                    ))}
+                </div>
+
+
+
+            )
+
+            }
+
+
+
         </motion.div>
     )
 }

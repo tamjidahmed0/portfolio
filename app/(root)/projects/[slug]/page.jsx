@@ -117,7 +117,8 @@ const DynamicPost = () => {
                     width={1000}
                     height={1000}
                     alt="tamjid"
-                    className="h-80 object-cover object-center rounded-xl"
+                   className="w-full h-auto object-cover object-center aspect-auto rounded-xl"
+
                   />
                 </CarouselItem>
               ))}
