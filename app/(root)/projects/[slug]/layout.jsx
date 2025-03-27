@@ -8,6 +8,7 @@ export async function generateMetadata(props) {
   const { slug } = params;
   const result = await getProjectsBySlug(slug);
 
+  
 
   const extractMetaDescription = (body) => {
     if (!body || !Array.isArray(body)) {
@@ -42,7 +43,7 @@ export async function generateMetadata(props) {
     openGraph: {
       title: result.title,
       description: extractMetaDescription(result.body) || '',
-      images: result.carousel.map((item) => urlFor(item.asset).url()) || ''
+      images: urlFor(result.projectThumbnail).url() || ''
     },
     twitter: {
       title: result.title,
